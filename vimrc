@@ -7,15 +7,20 @@ set shiftwidth=4
 set noexpandtab
 set noai
 set autoindent
+set nowrap "Sem quebra de linha
 "set filetype cindent
 set smartindent
 set ruler
 "set cindent
 
 "abreviações:
-ab SOP System.out.println("
+"C
 ab PF printf("
 ab STDIO #include<stdio.h>
+ab /* /* */<ESC>hhi
+
+"Java
+ab SOP System.out.println("
 
 ab SWING import javax.swing.J
 ab AWT import java.awt.
@@ -34,3 +39,8 @@ set hlsearch
 "Mapeamento de teclado
 map <F11> <ESC>:w<ENTER><ESC>:!make<ENTER>
 map <F12> <ESC>:w<ENTER><ESC>:!make run<ENTER>
+
+inoremap ( ()<ESC>i
+inoremap { {<CR>}<ESC>ko
+inoremap " ""<ESC>i
+
