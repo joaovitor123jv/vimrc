@@ -24,14 +24,19 @@ set ruler
 
 "abreviações:
 "C
+ab C_INCLUDES #include<stdio.h><CR>#include<stdlib.h><CR>#include<string.h><CR>#include<unistd.h><CR><CR>#ifndef bool<CR>#define bool char<CR>#endif<CR><CR>#ifndef true<CR>#define true 1<CR>#endif<CR><CR>#ifndef false<CR>#define false 0<CR>#endif<CR><CR>/*<CR>  @author João Vitor Antoniassi Segantin<CR>  @github https://github.com/joaovitor123jv<CR>*/<CR><CR><ESC>Ga
+
 ab PF printf("\n<esc>A;<esc>hhhhi
 ab STDIO #include<stdio.h>
 ab /* /* */<ESC>hhi
 ab free free( <esc>A;<esc>hhi
 ""ab else else<CR>{<CR>
-ab else else<CR>{<CR><ESC>ddkA
+ab el else
 ab malloc malloc( <esc>A;<esc>hhi
 ab if if( <esc>A<esc>hi
+
+ab ifndef #ifndef<CR>#define<CR>#endif<ESC>kkA
+ab inc #include< ><ESC>i
 
 
 "Html
