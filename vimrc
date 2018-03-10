@@ -4,7 +4,7 @@ syntax on
 
 ""colorscheme dracula
 ""colorscheme molokai
-""colorscheme torte
+colorscheme torte
 
 set guifont=Ubuntu\ Mono\ 10
 
@@ -99,3 +99,9 @@ inoremap " ""<ESC>i
 inoremap [ []<ESC>i
 inoremap ' ''<esc>i
 
+set scrolloff=8
+
+map <F9> :make<CR><CR>:cw<CR>
+
+
+""set complete=.,i
