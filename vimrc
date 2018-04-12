@@ -99,7 +99,20 @@ inoremap " ""<ESC>i
 inoremap [ []<ESC>i
 inoremap ' ''<esc>i
 
+
 set scrolloff=8
+
+
+
+set foldmethod=syntax
+"set foldmethod=indent
+""set foldmethod=manual
+inoremap <F7> <C-O>za
+nnoremap <F7> za
+onoremap <F7> <C-C>za
+vnoremap <F7> zf
+
+nnoremap ; :
 
 map <F9> :make<CR><CR>:cw<CR>
 
