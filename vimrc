@@ -44,6 +44,9 @@ Plugin 'https://github.com/danro/rename.vim'
 " pra comentar ou descomentar a seleção
 Plugin 'https://github.com/vim-scripts/tComment'
 
+" Syntax Highlight do Vala pro VIM
+Plugin 'arrufat/vala.vim'
+
 " Cria pares automágicos pras cosas que digitar... se digitar (, ele escreve ()
 Plugin 'https://github.com/jiangmiao/auto-pairs'
 
@@ -61,6 +64,13 @@ Plugin 'https://github.com/jistr/vim-nerdtree-tabs'
 
 " Cor do ATOM aqui
 Plugin 'https://github.com/joshdick/onedark.vim'
+
+" Cor bonitinha pro vim
+Plugin 'NLKNguyen/papercolor-theme'
+
+" Cor do ATOM (inclusive claro) aqui
+Plugin 'https://github.com/rakr/vim-one'
+
 
 " Plugin pra gerenciar as TODO lists
 Plugin 'irrationalistic/vim-tasks'
@@ -128,7 +138,7 @@ ab <% <% %><esc>hhi
 
 
 "Java
-""ab SOP System.out.println("<esc>$a;<esc>hhi
+ab SOP System.out.println("<esc>$a;<esc>hhi
 
 ""ab SWING import javax.swing.J
 ""ab AWT import java.awt.
@@ -217,7 +227,11 @@ map <C-T> <ESC>:tabe<CR>:E<CR>i
 nmap <Leader>h :tabprevious<CR>
 nmap <Leader>l :tabnext<CR>
 
-colorscheme onedark
+" colorscheme onedark
+set background=light
+" set background=dark
+" colorscheme PaperColor
+" colorscheme one
 
 " autocmd FileType * set noexpandtab
 syntax on
@@ -227,8 +241,8 @@ syntax on
 ""colorscheme torte
 " colorscheme delek
 
-""set guifont=Ubuntu\ Mono\ 10
-set guifont=Roboto\ Mono\ \Regular\ 10
+" set guifont=Ubuntu\ Mono\ 12
+" set guifont=Roboto\ Mono\ \Regular\ 10
 
 " Inicia o NERDTree assim que o vim inicializa
 "autocmd vimenter * NERDTree
@@ -239,3 +253,38 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
 let g:typescript_indent_disable = 1
+
+
+
+" " configurações de GUI
+" set guioptions-=m  "remove menu
+" set guioptions-=T  "remove toolbar
+" set guioptions-=r  "remove right-hand scroll bar
+" set guioptions-=L  "remove left-hand scroll bar
+
+" Realça a linha que está sendo editada
+" set cursorline
+
+
+
+" OPÇÕES DE FOLD
+set foldmethod=indent
+set foldnestmax=3
+set nofoldenable
+
+
+" OPÇÕES DE MENU
+set wildmenu " Permite um menu interativo pra completar comandos no vim
+
+
+" Opções de mouse
+set mouse=a
+
+" Impede o sistema de atualizar o texto quando executando alguma macro (desempenho)
+set lazyredraw
+
+" Faz com que o sistema procure por coisas ignorando diferenciação entre maiusculas e minusculas
+set ignorecase
+
+" Faz com o que sistema procure por palavras parciais
+set incsearch
