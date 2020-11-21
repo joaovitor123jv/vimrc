@@ -1,152 +1,74 @@
 set nocompatible              " be iMproved, required
-filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+" Specify a directory for plugins
+" - For Neovim: stdpath('data') . '/plugged'
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
 
-" let Vundle manage Vundle, required
-" Instala coisas como plugins quando escreve :PluginInstall
-Plugin 'VundleVim/Vundle.vim'
-
-" Esse plugin buga a indentação de arquivos do tipo RUBY
-" Plugin 'https://github.com/vim-ruby/vim-ruby'
+" Fuzzyfinder recomendado pelo Thiago do banco de dados
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " completa palavras quando aperta a tecla tab
-Plugin 'https://github.com/ervandew/supertab'
-
-" Deixa uma barrinha bonitinha ali
-Plugin 'https://github.com/vim-airline/vim-airline'
-
-" Plugin do tema do spacemacs para o vim
-Plugin 'https://github.com/colepeters/spacemacs-theme.vim'
-
-" Tema legalzinho pro vim ESCURO PACAS
-Plugin 'lucasprag/simpleblack'
-
-" Tema escurão pro vim
-Plugin 'drewtempelmeyer/palenight.vim'
-
-
-Plugin 'ryanoasis/vim-devicons'
-
-" Tema 16 bit pro vim
-" Plugin 'chriskempson/base16-vim'
-
-" se escrever :rename nomeNovo    isso renomeia o arquivo que estiver pra o
-" novo nome
-" Plugin 'https://github.com/danro/rename.vim'
+" Plug 'ervandew/supertab'
 
 " Digite gcc pra comentar ou descomentar uma linha, e selecione e digite gc
 " pra comentar ou descomentar a seleção
-Plugin 'https://github.com/vim-scripts/tComment'
+Plug 'vim-scripts/tComment'
+
+Plug 'jiangmiao/auto-pairs'
+
+Plug 'vim-airline/vim-airline'
+
+Plug 'scrooloose/nerdtree'
+
+Plug 'Xuyuanp/nerdtree-git-plugin'
+
+Plug 'jistr/vim-nerdtree-tabs'
+
+
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+
+Plug 'tkhren/vim-fake'
+
+
+" Temas
+Plug 'colepeters/spacemacs-theme.vim'
+Plug 'lucasprag/simpleblack'
+Plug 'drewtempelmeyer/palenight.vim'
+Plug 'jordwalke/vim-taste'
+Plug 'fxn/vim-monochrome'
+Plug 'joshdick/onedark.vim'
+Plug 'tomasr/molokai'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'rakr/vim-one'
+Plug 'crusoexia/vim-monokai'
+
+
+" Plugin de suporte ao dart pro vim
+Plug 'dart-lang/dart-vim-plugin'
+
+" Plugin de suporte a elixir pro vim
+Plug 'elixir-editors/vim-elixir'
 
 " Syntax Highlight do Vala pro VIM
 " Plugin 'arrufat/vala.vim'
 
-
-" Cria pares automágicos pras cosas que digitar... se digitar (, ele escreve ()
-Plugin 'https://github.com/jiangmiao/auto-pairs'
-
-" Pro RUBY  (completa os if e def automagicamente)
-" Plugin 'https://github.com/tpope/vim-endwise'
-
-" O épico, NERDTree
-Plugin 'scrooloose/nerdtree'
-
-" Plugin pra integração do NERDTree com o git
-Plugin 'https://github.com/Xuyuanp/nerdtree-git-plugin'
-
-" Plugin pra adicionar tabs no NERDTree
-Plugin 'https://github.com/jistr/vim-nerdtree-tabs'
-
-" Cor do ATOM aqui
-Plugin 'https://github.com/joshdick/onedark.vim'
-
-" Molokai
-Plugin 'tomasr/molokai'
-
-" Cor bonitinha pro vim
-Plugin 'NLKNguyen/papercolor-theme'
-
-" Cor do ATOM (inclusive claro) aqui
-Plugin 'https://github.com/rakr/vim-one'
-
-
-" Plugin pra gerenciar as TODO lists
-Plugin 'irrationalistic/vim-tasks'
-
-" Monokai theme
-Plugin 'crusoexia/vim-monokai'
-
-" Plugin de suporte a indentação (desabilitado ao final do .vimrc) e syntax
-" highlight
-" Plugin 'https://github.com/leafgarland/typescript-vim'
-
-" Plugin de suporte ao javascript pro vim
-Plugin 'https://github.com/pangloss/vim-javascript'
-
-
-" Plugin de suporte ao dart pro vim
-Plugin 'dart-lang/dart-vim-plugin'
-
-" Plugin de suporte a elixir pro vim
-Plugin 'elixir-editors/vim-elixir'
-
-
-" Plugin para suporte a syntax highlight em sintaxe JSX
-" Plugin 'maxmellon/vim-jsx-pretty'
-
-" Plugin para suporte a jsx(melhor)
-Plugin 'https://github.com/mxw/vim-jsx'
-
 " YouCompleteMe - Auto-complete in vim
-Plugin 'https://github.com/Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe'
 
-" VIM Table Mode
-Plugin 'https://github.com/dhruvasagar/vim-table-mode'
+" Initialize plugin system
+call plug#end()
 
 
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-" Plugin 'tpope/vim-fugitive'
-" plugin from http://vim-scripts.org/vim/scripts.html
-" Plugin 'L9'
-" Git plugin not hosted on GitHub
-""Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-""Plugin 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-""Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Install L9 and avoid a Naming conflict if you've already installed a
-" different version somewhere else.
-" Plugin 'ascenator/L9', {'name': 'newL9'}
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-
-" To ignore plugin indent changes, instead use:
-" filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
 
 
 " HABILITA TRUE COLOR
-if (has("termguicolors"))
-  set termguicolors
-endif
+" if (has("termguicolors"))
+"   set termguicolors
+" endif
 
 
 
@@ -173,9 +95,9 @@ endif
 
 "" Javascript
 ab CL console.log("<esc>A;<esc>hhi
-inoremap ,class <esc>:read ~/.vim/snippets/js/react_class.js<cr><esc>wcw
-inoremap ,imp <esc>:read ~/.vim/snippets/js/import.js<cr>2whi
-inoremap ,map <esc>:read ~/.vim/snippets/js/map.js<cr>kgJjhcw
+" inoremap ,class <esc>:read ~/.vim/snippets/js/react_class.js<cr><esc>wcw
+" inoremap ,imp <esc>:read ~/.vim/snippets/js/import.js<cr>2whi
+" inoremap ,map <esc>:read ~/.vim/snippets/js/map.js<cr>kgJjhcw
 
 
 "Java
@@ -253,7 +175,7 @@ endif
 
 
 " Isso permite que as tabs do NERDTree apareçam automagicamente
-let g:nerdtree_tabs_open_on_console_startup=1
+" let g:nerdtree_tabs_open_on_console_startup=1
 
 " Configuração pra que as tabs do NERDTree sejam ativadas/desativadas
 " escrevendo "\b" no terminal
@@ -267,33 +189,36 @@ nmap <Leader>h :tabprevious<CR>
 nmap <Leader>l :tabnext<CR>
 
 " colorscheme onedark
-" set background=light
-set background=dark
+" set background=dark
 " colorscheme PaperColor
 " colorscheme simpleblack
 " colorscheme one
-" colorscheme spacemacs
-"
+" colorscheme spacemacs-theme
+" colorscheme taste
+
 "
 colorscheme palenight
 
+" colorscheme taste
+
+" colorscheme monochrome
+
+set background=dark
+" set background=light
 
 " autocmd FileType * set noexpandtab
 syntax on
 
 
 
-" set guifont=Ubuntu\ Mono\ 12
-" set guifont=Roboto\ Mono\ \Regular\ 10
-
 " Inicia o NERDTree assim que o vim inicializa
-"autocmd vimenter * NERDTree
+" autocmd vimenter * NERDTree
 map <C-b> :NERDTreeToggle<CR>
 " nmap <Leader>b :NERDTreeToggle<CR>
 
 "  Isso permite que o NERDTree possa aparecer quando passar um diretorio como argumento
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+" autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
 " let g:typescript_indent_disable = 1
 " let g:javascript_indent_disable = 1
@@ -306,17 +231,22 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 " set guioptions-=r  "remove right-hand scroll bar
 " set guioptions-=L  "remove left-hand scroll bar
 
-" Realça a linha que está sendo editada
-set cursorline
+" Desabilita Realce da linha que está sendo editada
+set nocursorline
 
 " Configurações do YouCompleteMe
-"	Inicia auto-complete ao ter mais de 2 letras
-let g:ycm_min_num_of_chars_for_completion = 2
-let g:ycm_min_num_identifier_candidate_chars = 2
+
+" CONFIGURACOES PADRAO YCM
+"	Inicia auto-complete ao ter mais de 3 letras
+let g:ycm_min_num_of_chars_for_completion = 3
+let g:ycm_min_num_identifier_candidate_chars = 3
 let g:ycm_enable_diagnostic_highlighting = 0
-"   Desabilita a janela de preview (superior) do YouCompleteMe
+" "   Desabilita a janela de preview (superior) do YouCompleteMe
 set completeopt-=preview
 let g:ycm_add_preview_to_completeopt = 0
+
+" Define a quantidade de candidatos que aparece na janelinha do YCM
+let g:ycm_max_num_candidates = 10
 
 
 " OPÇÕES DE FOLD
@@ -336,11 +266,10 @@ set mouse=a
 set lazyredraw
 
 " Faz com que o sistema procure por coisas ignorando diferenciação entre maiusculas e minusculas
-set ignorecase
+" set ignorecase
 
 " Faz com o que sistema procure por palavras parciais
-set incsearch
-
+" set incsearch
 
 
 " Configurações do vim-javascript
@@ -359,7 +288,7 @@ set expandtab
 "set nowrap "Sem quebra de linha
 "set filetype cindent
 "
-" set smartindent
+set smartindent
 "
 set ruler
 " set cindent
@@ -373,6 +302,17 @@ set ruler
 " let dart_style_guide = 4
 " let dart_format_on_save = 0
 
-
 let g:table_mode_corder='|'
 
+" Remove caracteres das barras de divisão de janelas '|' por ' '
+set fillchars+=vert:\ 
+"
+" " Deixa a cor da barra de divisão de janelas acinzentada
+hi VertSplit ctermfg=237
+hi VertSplit ctermbg=237
+"
+" " Altera a cor da tabbar
+hi TabLineFill ctermfg=237 ctermbg=237
+hi TabLine ctermfg=252 ctermbg=237
+hi TabLineSel ctermfg=255 ctermbg=black
+"
