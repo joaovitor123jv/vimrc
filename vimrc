@@ -10,7 +10,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 " completa palavras quando aperta a tecla tab
-" Plug 'ervandew/supertab'
+Plug 'ervandew/supertab'
 
 " Digite gcc pra comentar ou descomentar uma linha, e selecione e digite gc
 " pra comentar ou descomentar a seleção
@@ -30,7 +30,7 @@ Plug 'jistr/vim-nerdtree-tabs'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 
-Plug 'tkhren/vim-fake'
+" Plug 'tkhren/vim-fake'
 
 
 " Temas
@@ -47,16 +47,18 @@ Plug 'crusoexia/vim-monokai'
 
 
 " Plugin de suporte ao dart pro vim
-Plug 'dart-lang/dart-vim-plugin'
+" Plug 'dart-lang/dart-vim-plugin'
 
 " Plugin de suporte a elixir pro vim
-Plug 'elixir-editors/vim-elixir'
+" Plug 'elixir-editors/vim-elixir'
 
 " Syntax Highlight do Vala pro VIM
 " Plugin 'arrufat/vala.vim'
 
 " YouCompleteMe - Auto-complete in vim
-Plug 'Valloric/YouCompleteMe'
+" Plug 'Valloric/YouCompleteMe'
+
+" Plug 'ajh17/VimCompletesMe'
 
 " Initialize plugin system
 call plug#end()
@@ -146,6 +148,12 @@ set scrolloff=5
 " onoremap <F7> <C-C>za
 " vnoremap <F7> zf
 
+
+" Copy to system clipboard using visual mode and then pressing ' two times on
+" MacBook's VIM (mvim)
+vmap '' :w !pbcopy <CR><CR>
+
+
 nnoremap ; :
 
 " map <F9> :make<CR><CR>:cw<CR>
@@ -179,14 +187,14 @@ endif
 
 " Configuração pra que as tabs do NERDTree sejam ativadas/desativadas
 " escrevendo "\b" no terminal
-map <Leader>b <plug>NERDTreeTabsToggle<CR>
+" map <Leader>b <plug>NERDTreeTabsToggle<CR>
 
 
 " TABS
 " inoremap <C-T> <ESC>:tabe<CR>:E<CR>i
 " map <C-T> <ESC>:tabe<CR>:E<CR>i
-nmap <Leader>h :tabprevious<CR>
-nmap <Leader>l :tabnext<CR>
+nmap <Leader>[ :tabprevious<CR>
+nmap <Leader>] :tabnext<CR>
 
 " colorscheme onedark
 " set background=dark
@@ -195,6 +203,7 @@ nmap <Leader>l :tabnext<CR>
 " colorscheme one
 " colorscheme spacemacs-theme
 " colorscheme taste
+" colorscheme molokai
 
 "
 colorscheme palenight
@@ -228,25 +237,25 @@ autocmd StdinReadPre * let s:std_in=1
 " " configurações de GUI (Agora no .gvimrc)
 " set guioptions-=m  "remove menu
 " set guioptions-=T  "remove toolbar
-" set guioptions-=r  "remove right-hand scroll bar
-" set guioptions-=L  "remove left-hand scroll bar
+set guioptions-=r  "remove right-hand scroll bar
+set guioptions-=L  "remove left-hand scroll bar
 
 " Desabilita Realce da linha que está sendo editada
-set nocursorline
+" set nocursorline
 
 " Configurações do YouCompleteMe
 
 " CONFIGURACOES PADRAO YCM
 "	Inicia auto-complete ao ter mais de 3 letras
-let g:ycm_min_num_of_chars_for_completion = 3
-let g:ycm_min_num_identifier_candidate_chars = 3
-let g:ycm_enable_diagnostic_highlighting = 0
+" let g:ycm_min_num_of_chars_for_completion = 3
+" let g:ycm_min_num_identifier_candidate_chars = 3
+" let g:ycm_enable_diagnostic_highlighting = 0
 " "   Desabilita a janela de preview (superior) do YouCompleteMe
-set completeopt-=preview
-let g:ycm_add_preview_to_completeopt = 0
+" set completeopt-=preview
+" let g:ycm_add_preview_to_completeopt = 0
 
 " Define a quantidade de candidatos que aparece na janelinha do YCM
-let g:ycm_max_num_candidates = 10
+" let g:ycm_max_num_candidates = 10
 
 
 " OPÇÕES DE FOLD
@@ -266,10 +275,10 @@ set mouse=a
 set lazyredraw
 
 " Faz com que o sistema procure por coisas ignorando diferenciação entre maiusculas e minusculas
-" set ignorecase
+set ignorecase
 
 " Faz com o que sistema procure por palavras parciais
-" set incsearch
+set incsearch
 
 
 " Configurações do vim-javascript
@@ -291,6 +300,9 @@ set expandtab
 set smartindent
 "
 set ruler
+set rnu
+set cursorline
+
 " set cindent
 " set autoindent noexpandtab tabstop=4 shiftwidth=4
 
@@ -302,17 +314,17 @@ set ruler
 " let dart_style_guide = 4
 " let dart_format_on_save = 0
 
-let g:table_mode_corder='|'
+" let g:table_mode_corder='|'
 
 " Remove caracteres das barras de divisão de janelas '|' por ' '
-set fillchars+=vert:\ 
+" set fillchars+=vert:\ 
 "
 " " Deixa a cor da barra de divisão de janelas acinzentada
-hi VertSplit ctermfg=237
-hi VertSplit ctermbg=237
+" hi VertSplit ctermfg=237
+" hi VertSplit ctermbg=237
 "
 " " Altera a cor da tabbar
-hi TabLineFill ctermfg=237 ctermbg=237
-hi TabLine ctermfg=252 ctermbg=237
-hi TabLineSel ctermfg=255 ctermbg=black
+" hi TabLineFill ctermfg=237 ctermbg=237
+" hi TabLine ctermfg=252 ctermbg=237
+" hi TabLineSel ctermfg=255 ctermbg=black
 "
