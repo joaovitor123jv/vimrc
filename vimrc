@@ -275,6 +275,7 @@ set clipboard=unnamedplus
 inoremap <C-x> <esc>yyp0t>la/<Esc>t ldtko
 nnoremap <C-x> yyp0t>la/<Esc>t ldtko
 
+nmap <Leader>h :syntax sync fromstart<CR>
 
 " Enable Copilot for gitcommit, markdown and yaml files
 let g:copilot_filetypes = {
