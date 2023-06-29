@@ -57,7 +57,7 @@ Plug 'crusoexia/vim-monokai'
 " Plugin 'arrufat/vala.vim'
 
 " YouCompleteMe - Auto-complete in vim
-Plug 'Valloric/YouCompleteMe'
+Plug 'ycm-core/YouCompleteMe'
 
 " Plug 'ajh17/VimCompletesMe'
 
@@ -88,7 +88,7 @@ endif
 " ab <% <% %><esc>hhi
 
 " Python
-ab PP print(f"<esc>hhi
+ab PP print(f"<esc>a
 
 " Javascript
 ab CL console.log("<esc>A;<esc>hhi
@@ -102,9 +102,6 @@ ab CL console.log("<esc>A;<esc>hhi
 "Mapeamento de teclado
 " map <F10> <ESC>:w<ENTER><ESC>:!make<ENTER>
 " map <F12> <ESC>:w<ENTER><ESC>:!make run<ENTER>
-
-" inoremap <F5> <ESC>gT
-" inoremap <F6> <ESC>gt
 
 
 
@@ -150,18 +147,6 @@ endif
 
 
 
-
-" Configurações do Syntastic 
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
-
-
 " TABS
 " nmap <Leader>[ :tabprevious<CR>
 " nmap <Leader>] :tabnext<CR>
@@ -196,14 +181,6 @@ autocmd StdinReadPre * let s:std_in=1
 " let g:typescript_indent_disable = 1
 " let g:javascript_indent_disable = 1
 
-
-
-" " configurações de GUI (Agora no .gvimrc)
-" set guioptions-=m  "remove menu
-" set guioptions-=T  "remove toolbar
-set guioptions-=r  "remove right-hand scroll bar
-set guioptions-=L  "remove left-hand scroll bar
-
 " Desabilita Realce da linha que está sendo editada
 " set nocursorline
 
@@ -217,9 +194,8 @@ set guioptions-=L  "remove left-hand scroll bar
 " "   Desabilita a janela de preview (superior) do YouCompleteMe
 set completeopt-=preview
 let g:ycm_add_preview_to_completeopt = 0
+let g:ycm_max_num_candidates = 10
 
-" Define a quantidade de candidatos que aparece na janelinha do YCM
-" let g:ycm_max_num_candidates = 10
 
 
 " OPÇÕES DE FOLD
@@ -290,26 +266,27 @@ set cursorline
 " let dart_style_guide = 4
 " let dart_format_on_save = 0
 
-" let g:table_mode_corder='|'
 
-" Remove caracteres das barras de divisão de janelas '|' por ' '
-" set fillchars+=vert:\ 
-"
-" " Deixa a cor da barra de divisão de janelas acinzentada
-" hi VertSplit ctermfg=237
-" hi VertSplit ctermbg=237
-"
-" " Altera a cor da tabbar
-" hi TabLineFill ctermfg=237 ctermbg=237
-" hi TabLine ctermfg=252 ctermbg=237
-" hi TabLineSel ctermfg=255 ctermbg=black
-"
-
-
-" Set max length for python autopep and disable diff window
-" let g:autopep8_max_line_length=119
-" let g:autopep8_disable_show_diff=1
-
-
-" Unify system clipboard and vim clipboard
+" Unify system clipboard and vim clipboard if in linux
 set clipboard=unnamedplus
+
+
+" Complete HTML tag on pressing CTRL+X
+inoremap <C-x> <esc>yyp0t>la/<Esc>t ldtko
+nnoremap <C-x> yyp0t>la/<Esc>t ldtko
+
+
+" Enable Copilot for gitcommit, markdown and yaml files
+let g:copilot_filetypes = {
+    \ 'gitcommit': v:true,
+    \ 'markdown': v:true,
+    \ 'yaml': v:true
+    \ }
+
+" Disable Copilot for files larger than 100kb
+autocmd BufReadPre *
+    \ let f=getfsize(expand("<afile>"))
+    \ | if f > 100000 || f == -2
+    \ | let b:copilot_enabled = v:false
+    \ | endif
+
