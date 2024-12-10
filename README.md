@@ -1,40 +1,26 @@
 # Vimrc
-This repository contains the /home/user/.vimrc file that I use for general Programming;
 
-## Features
-- Vundle as plugin manager
-- YouCompleteMe for autocompletion
-- Github Copilot for autocompletion
-- NERDTree for file browsing
-- FuzzyFinder for file searching
-- Fugitive for git integration
-- Airline for status bar
-- Auto-pairs for auto closing brackets
-- NERDTree git plugin for git integration on NERDTree
-- vim-nerdtree-tabs for tabs on NERDTree
+This repository contains the configuration files for VIM and NVIM that I use
+for general Programming.
 
-## How to install
+## Directory structure
 
-- Clone this repository `git clone https://github.com/joaovitor123jv/vimrc`
-- Copy the .vimrc file to your home directory `cp vimrc/.vimrc ~/.vimrc`
-- Open vim and run `:PlugInstall` to install all plugins
-- Install needed compilers for YCM --all
-    - On Debian-based distros
-        - If ASDF is not available (possible issues with nodejs and python):
-            `sudo apt install build-essential cmake vim-nox python3-dev mono-complete golang nodejs openjdk-17-jdk openjdk-17-jre npm`
-        - If ASDF is available:
-            `sudo apt install build-essential cmake vim-nox python3-dev mono-complete golang openjdk-17-jdk openjdk-17-jre; asdf plugin add nodejs; asdf plugin add python; asdf install nodejs latest; asdf install python latest; asdf global nodejs latest; asdf global python latest`
-- Compile YCM: `cd ~/.vim/plugged/YouCompleteMe && python3 install.py --all`
-- Install github copilot (VIM 9+ required and nodejs 18+):
-    - `git clone https://github.com/github/copilot.vim.git ~/.vim/pack/github/start/copilot.vim`
-    - Open VIM and run `:Copilot setup`
+The `vim-settings` directory contains the vimrc and gvimrc for usage with the
+default VIM (using vimscript). Be sure to read vim-settings/README.md to get
+a grasp on the features provided.
 
-That's it! You're ready to go!
+The `nvim-settings` directory contains the equivalent to `$HOME/.config/nvim`
+configurations. It is written in Lua, and uses several plugins (written for
+nvim) with different keymaps in some cases.
+
+Be sure to read the subdirectories for specific info about the settings.
 
 ## Disclaimer
 
-This vimrc is not projected to be used by anyone else other than me, so it may not work on your machine. If you want to use it, you may need to change some things in order to make it work properly.
+BTW, this is a personal project that I made public in order to help anyone that
+is trying to configure your own VIM or NVIM with your own choices of plugins,
+but I provide no guarantee that it will work. Use this at your own risk.
 
-If you wish to use it, feel free to do so, but I'm not responsible for any damage it may cause to your machine.
-
+I recommend learning VIM or NVIM before understanding the contents of the
+settings here, many things are NOT documented.
 
