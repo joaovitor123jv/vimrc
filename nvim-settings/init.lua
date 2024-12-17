@@ -11,6 +11,7 @@ spec("plugin.mason")
 spec("plugin.lualine")
 spec("plugin.autopairs")
 spec("plugin.nvim-tree")
+spec("plugin.zig")
 -- spec("plugin.gen")
 
 require "plugin.lazy"

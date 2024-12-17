@@ -25,3 +25,6 @@ local nvim_tree_api = require("nvim-tree.api")
 
 vim.keymap.set("n", "<C-b>", nvim_tree_api.tree.toggle)
 
+-- Builtin keymaps
+vim.keymap.set("n", ";", ":")
+

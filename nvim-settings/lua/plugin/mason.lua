@@ -11,6 +11,7 @@ M.servers = {
     "clangd",
     "pyright",
     "rust_analyzer",
+    "zls"
 }
 
 function M.config()
